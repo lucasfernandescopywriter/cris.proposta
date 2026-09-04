@@ -792,30 +792,6 @@ body {
   padding: 1rem 0;
 }
 
-.investment-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background-color: var(--text-main);
-  padding: 0.75rem 1rem;
-  width: fit-content;
-  border-radius: 4px;
-}
-
-.investment-marker {
-  width: 6px;
-  height: 24px;
-  background-color: var(--color-blue);
-}
-
-.investment-title {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
 .investment-subtitle {
   font-size: 1.15rem;
   color: var(--text-body);
