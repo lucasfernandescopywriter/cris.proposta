@@ -1,0 +1,1020 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+/* ─── TOKENS & HIGH CONTRAST PALETTE ─────────────────────── */
+:root {
+  --bg-page:        #F8F8F6;
+  --bg-pure:        #FFFFFF;
+  --bg-subtle:      #F1F1EE;
+  
+  --text-main:      #0F172A; /* Deep dark slate - maximum crisp contrast */
+  --text-body:      #2D3748; /* Dark readable neutral - high contrast */
+  --text-muted:     #4A5568; /* Readable secondary text */
+  --text-light:     #718096;
+  
+  --color-blue:     #1A56DB; /* Royal Direct Response Blue */
+  --color-blue-dark:#1E40AF;
+  --color-blue-tint:#EFF6FF;
+  
+  --border-light:   rgba(15, 23, 42, 0.10);
+  --border-strong:  rgba(15, 23, 42, 0.18);
+  
+  --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─── LAYOUT STRUCTURE (EDITORIAL, SEM CARDS FLUTUANTES) ─── */
+.scroll-container {
+  width: 100%;
+  display: block;
+}
+
+.slide {
+  width: 100%;
+  padding: 6rem 5vw;
+  position: relative;
+  display: block;
+}
+
+.slide--white {
+  background-color: var(--bg-pure);
+}
+
+.slide--warm {
+  background-color: var(--bg-page);
+}
+
+.slide--blue {
+  background-color: var(--color-blue);
+  color: #FFFFFF;
+}
+
+.content-wrapper {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ─── TYPOGRAPHIC HIERARCHY ─────────────────────────────── */
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-blue);
+  margin-bottom: 1rem;
+}
+
+.section-tag--white {
+  color: #DBEAFE;
+}
+
+.huge-header, .section-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.section-title--white {
+  color: #FFFFFF;
+}
+
+.hero-copy, .section-intro {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  color: var(--text-body);
+  max-width: 72ch;
+  line-height: 1.6;
+  margin-bottom: 3.5rem;
+}
+
+.section-intro--white {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
+/* ─── HERO EDITORIAL (ZERO CARDS UNDERNEATH) ─────────────── */
+.slide-hero {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hero-editorial-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-top-meta {
+  margin-bottom: 1.75rem;
+}
+
+.hero-badge-pill {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-left: 3px solid var(--color-blue);
+  padding-left: 0.75rem;
+}
+
+.hero-main-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+}
+
+.hero-sub-p {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 400;
+  color: var(--text-body);
+  max-width: 65ch;
+  line-height: 1.5;
+  margin-bottom: 3.5rem;
+}
+
+/* Hero Meta Strip — Linha limpa executiva, sem card */
+.hero-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-strong);
+}
+
+.hero-meta-item {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.hero-meta-item strong {
+  color: var(--text-main);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  margin-right: 0.35rem;
+}
+
+/* ─── 02. O QUE VOCÊ ENFRENTA (EDITORIAL TABLE) ───────────── */
+.editorial-matrix {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--text-main);
+}
+
+.matrix-line {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.matrix-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.matrix-tag-problem {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #B91C1C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.matrix-text-problem {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.matrix-divider-arrow {
+  color: var(--color-blue);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.matrix-tag-solution {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.matrix-text-solution {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  line-height: 1.35;
+}
+
+/* Fora do Escopo desta Fase */
+.scope-exclusion-strip {
+  margin-top: 3.5rem;
+  padding: 2rem 2.5rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.scope-exclusion-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.scope-pill {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: #E2E8F0;
+  color: var(--text-main);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+}
+
+.scope-title-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+.scope-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.scope-item strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.scope-item p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ─── 03. A CAUSA DO PROBLEMA (EDITORIAL SPLIT) ───────────── */
+.editorial-split-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 4.5rem;
+  align-items: start;
+  border-top: 1px solid var(--border-light);
+  padding-top: 3.5rem;
+}
+
+.editorial-lead-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.editorial-lead-quote {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-main);
+  border-left: 4px solid var(--color-blue);
+  padding-left: 1.75rem;
+}
+
+.editorial-lead-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.editorial-points-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-point-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.editorial-point-row:first-child {
+  padding-top: 0;
+}
+
+.point-num {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-blue);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.point-content h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.point-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── 04. O MÉTODO AUTORIDADE MAGNÉTICA (LINEAR STEPS) ────── */
+.method-sequence-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 3rem;
+  margin-top: 2rem;
+}
+
+.method-step-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.method-step-num {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #93C5FD;
+  line-height: 1;
+}
+
+.method-step-col h4 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.method-step-col p {
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* ─── 05. POR QUE ESSE MODELO FUNCIONA MELHOR ─────────────── */
+.reasons-3col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  border-top: 2px solid var(--text-main);
+  padding-top: 3rem;
+}
+
+.reason-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reason-index {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.reason-col h4 {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.reason-col p {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* ─── 06. A PROVA DE QUE FUNCIONA (COMPARATIVO + FUNIL) ──── */
+.proof-editorial-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.proof-compare-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  border-top: 2px solid var(--text-main);
+  padding-top: 3rem;
+}
+
+.proof-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.proof-col-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.proof-col-badge--bad {
+  color: #DC2626;
+}
+
+.proof-col-badge--good {
+  color: var(--color-blue);
+}
+
+.proof-col h3 {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.proof-bullets-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.proof-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.proof-bullet-item strong {
+  color: var(--text-main);
+}
+
+.bullet-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* O Fluxo de Conversão (3 Fases) */
+.conversion-flow-section {
+  border-top: 1px solid var(--border-light);
+  padding-top: 3.5rem;
+}
+
+.flow-title-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-blue);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.flow-3steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.flow-step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 3px solid var(--text-main);
+  padding-top: 1.5rem;
+}
+
+.flow-step-item--highlight {
+  border-top-color: var(--color-blue);
+}
+
+.flow-step-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  letter-spacing: 0.08em;
+}
+
+.flow-step-item h4 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.flow-step-item--highlight h4 {
+  color: var(--color-blue);
+}
+
+.flow-step-item p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* Cronograma (2 Fases) */
+.timeline-section {
+  border-top: 1px solid var(--border-light);
+  padding-top: 3.5rem;
+}
+
+.timeline-2phases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+}
+
+.timeline-phase-col {
+  border-left: 3px solid var(--color-blue);
+  padding-left: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline-phase-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.timeline-phase-col h4 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.timeline-phase-col p {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* 3 Badges de Compromisso */
+.proof-badges-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 2.5rem 0;
+}
+
+.proof-badge-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.proof-badge-item h4 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.proof-badge-item p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ─── 07. QUEM ESTÁ POR TRÁS DA ESTRATÉGIA ───────────────── */
+.bio-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4.5rem;
+  align-items: center;
+  border-top: 2px solid var(--text-main);
+  padding-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.bio-name {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+.bio-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bio-manifesto {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-main);
+  border-left: 4px solid var(--color-blue);
+  padding-left: 2rem;
+}
+
+/* OAB Banner */
+.oab-compliance-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
+  background-color: var(--bg-subtle);
+  border-left: 4px solid var(--color-blue);
+  border-radius: 4px;
+}
+
+.oab-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.oab-text h5 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.oab-text p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ─── 08. O QUE VOCÊ VAI RECEBER (DELIVERABLES LIST) ──────── */
+.deliverables-editorial-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--text-main);
+}
+
+.deliverable-row {
+  display: grid;
+  grid-template-columns: 80px 1.2fr 2fr;
+  gap: 2.5rem;
+  align-items: baseline;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.deliverable-idx {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-blue);
+}
+
+.deliverable-name {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.deliverable-desc {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* ─── 09. O INVESTIMENTO & GARANTIA ──────────────────────── */
+.offer-editorial-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Banner da Garantia — Fundo claro, borda grossa azul, tipografia de alto impacto */
+.guarantee-statement-box {
+  border: 3px solid var(--color-blue);
+  background-color: var(--bg-pure);
+  padding: 3.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.guarantee-tag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-blue);
+}
+
+.guarantee-headline {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.guarantee-sub {
+  font-size: 1.15rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* Investment Price Line */
+.price-presentation-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.price-meta {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-blue);
+}
+
+.price-main {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.price-main span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.price-description {
+  font-size: 1.15rem;
+  color: var(--text-body);
+  line-height: 1.65;
+  max-width: 70ch;
+}
+
+.continuation-note-line {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-left: 3px solid var(--border-strong);
+  padding-left: 1.5rem;
+}
+
+.continuation-note-line strong {
+  color: var(--text-main);
+}
+
+/* ─── 10. FAQ & CTA FINAL ────────────────────────────────── */
+.faq-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  border-top: 2px solid var(--text-main);
+  padding-top: 3.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-entry {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-entry:first-child {
+  padding-top: 0;
+}
+
+.faq-question {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.faq-answer {
+  font-size: 1.02rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* CTA Final Panel — Alto Contraste: Fundo Azul com Texto Branco Puro */
+.cta-high-contrast-panel {
+  background-color: var(--color-blue);
+  color: #FFFFFF;
+  padding: 3.5rem 3rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  box-shadow: 0 16px 40px rgba(26, 86, 219, 0.2);
+}
+
+.cta-tag-white {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #BFDBFE;
+}
+
+.cta-headline-white {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: #FFFFFF !important;
+}
+
+.cta-body-white {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.cta-button-white {
+  display: inline-block;
+  background-color: #FFFFFF;
+  color: var(--color-blue) !important;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 1.2rem 2.2rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-top: 0.5rem;
+}
+
+.cta-button-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background-color: #F8FAFC;
+}
+
+/* ─── 100% RESPONSIVIDADE MOBILE ─────────────────────────── */
+@media (max-width: 900px) {
+  .slide {
+    padding: 4.5rem 6vw;
+  }
+  
+  .huge-header, .section-title {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
+  
+  .hero-main-title {
+    font-size: clamp(2.5rem, 8.5vw, 4.2rem);
+  }
+
+  .matrix-line {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 2rem 0;
+  }
+  
+  .matrix-divider-arrow {
+    transform: rotate(90deg);
+    align-self: flex-start;
+  }
+
+  .scope-items-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .editorial-split-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .method-sequence-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .reasons-3col-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .proof-compare-columns {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .flow-3steps-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .timeline-2phases-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .proof-badges-row {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .bio-editorial-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .deliverable-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 2.2rem 0;
+  }
+
+  .faq-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .guarantee-statement-box {
+    padding: 2.2rem 1.5rem;
+  }
+
+  .cta-high-contrast-panel {
+    padding: 2.5rem 1.75rem;
+  }
+  
+  .cta-button-white {
+    width: 100%;
+  }
+}
