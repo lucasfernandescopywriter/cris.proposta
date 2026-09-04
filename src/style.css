@@ -796,7 +796,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #16161E; /* Dark background matching the bar */
+  background-color: var(--text-main);
   padding: 0.75rem 1rem;
   width: fit-content;
   border-radius: 4px;
@@ -805,7 +805,7 @@ body {
 .investment-marker {
   width: 6px;
   height: 24px;
-  background-color: #C8991D; /* Gold/Yellow matching the image */
+  background-color: var(--color-blue);
 }
 
 .investment-title {
@@ -825,54 +825,55 @@ body {
 .pricing-split-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
 }
 
 .pricing-col {
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .pricing-col--credit {
-  background-color: #1A1A24; /* Dark blue/black */
+  background-color: var(--text-main);
   color: #FFFFFF;
 }
 
 .pricing-col--pix {
-  background-color: #C8991D; /* Gold/Yellow */
+  background-color: var(--color-blue);
   color: #FFFFFF;
 }
 
 .pricing-method {
   font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .pricing-col--credit .pricing-method {
-  color: #C8991D;
+  color: var(--color-blue);
 }
 
 .pricing-col--pix .pricing-method {
-  color: #FFFFFF;
+  color: #DBEAFE; /* Lighter blue tint for contrast */
 }
 
 .pricing-value {
-  font-size: 2.8rem;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 900;
   line-height: 1.1;
   color: #FFFFFF;
   margin: 0.25rem 0;
+  letter-spacing: -0.02em;
 }
 
 .pricing-detail {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ─── 10. FAQ & CTA FINAL ────────────────────────────────── */
