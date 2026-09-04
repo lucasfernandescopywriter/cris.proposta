@@ -784,54 +784,95 @@ body {
   line-height: 1.65;
 }
 
-/* Investment Price Line */
-.price-presentation-box {
+/* ─── NEW INVESTMENT TABLE ──────────────────────── */
+.investment-section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 3rem 0;
-  border-top: 1px solid var(--border-strong);
-  border-bottom: 1px solid var(--border-strong);
+  padding: 1rem 0;
 }
 
-.price-meta {
-  font-size: 0.85rem;
+.investment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #16161E; /* Dark background matching the bar */
+  padding: 0.75rem 1rem;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.investment-marker {
+  width: 6px;
+  height: 24px;
+  background-color: #C8991D; /* Gold/Yellow matching the image */
+}
+
+.investment-title {
+  font-size: 1.4rem;
   font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-blue);
 }
 
-.price-main {
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 900;
-  color: var(--text-main);
-  line-height: 1;
-}
-
-.price-main span {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.price-description {
+.investment-subtitle {
   font-size: 1.15rem;
   color: var(--text-body);
-  line-height: 1.65;
-  max-width: 70ch;
+  margin-bottom: 0.75rem;
 }
 
-.continuation-note-line {
+.pricing-split-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.pricing-col {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pricing-col--credit {
+  background-color: #1A1A24; /* Dark blue/black */
+  color: #FFFFFF;
+}
+
+.pricing-col--pix {
+  background-color: #C8991D; /* Gold/Yellow */
+  color: #FFFFFF;
+}
+
+.pricing-method {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pricing-col--credit .pricing-method {
+  color: #C8991D;
+}
+
+.pricing-col--pix .pricing-method {
+  color: #FFFFFF;
+}
+
+.pricing-value {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin: 0.25rem 0;
+}
+
+.pricing-detail {
   font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  border-left: 3px solid var(--border-strong);
-  padding-left: 1.5rem;
-}
-
-.continuation-note-line strong {
-  color: var(--text-main);
+  opacity: 0.9;
 }
 
 /* ─── 10. FAQ & CTA FINAL ────────────────────────────────── */
