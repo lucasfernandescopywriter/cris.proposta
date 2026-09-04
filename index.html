@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Método Autoridade Magnética · Proposta Executiva</title>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <div class="scroll-container">
@@ -536,6 +537,12 @@
       </section>
 
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.slide').forEach((slide) => {
+          slide.classList.add('in-view');
+        });
+      });
+    </script>
   </body>
 </html>
